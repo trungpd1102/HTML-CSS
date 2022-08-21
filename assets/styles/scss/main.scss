@@ -1,0 +1,50 @@
+@import './base.scss';
+
+.header {
+	height: 120px;
+	background-image: linear-gradient(to bottom, #f43e2c, #fe6433);
+	&__navbar {
+		display: flex;
+		justify-content: space-between;
+		&-list {
+			list-style: none;
+			padding-left: 0;
+			margin-top: 4px;
+		}
+		&-item {
+			margin: 0 8px;
+			position: relative;
+			&--seperate::after {
+				position: absolute;
+				display: block;
+				content: '';
+				width: 1.5px;
+				height: 12px;
+				top: 50%;
+				transform: translateY(-50%);
+				right: -9px;
+			}
+			&--strong {
+				font-weight: 400;
+			}
+			&:hover {
+				opacity: 0.5;
+				cursor: pointer;
+			}
+
+			&,
+			&-link {
+				display: inline-block;
+				font-size: 1.4rem;
+				font-weight: 300;
+				color: $white-color;
+				text-decoration: none;
+			}
+			.item__icon {
+				width: 18px;
+				height: 18px;
+				color: $white-color;
+			}
+		}
+	}
+}
