@@ -30,3 +30,11 @@ body {
 		flex-wrap: wrap;
 	}
 }
+
+// Animation
+
+@mixin keyframes($name) {
+	@keyframes #{$name} {
+		@content;
+	}
+}
