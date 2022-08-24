@@ -166,7 +166,7 @@ body {
   color: #333;
   position: absolute;
   width: 400px;
-  top: 25px;
+  top: 30px;
   right: 0;
   background-color: #fff;
   border-radius: 2px;
@@ -178,6 +178,15 @@ body {
           transform-origin: 100% 0%;
   -webkit-animation: fade 0.2s ease-out;
           animation: fade 0.2s ease-out;
+}
+.header__notify::before {
+  content: "";
+  border-width: 20px 27px;
+  border-style: solid;
+  border-color: transparent transparent #fff transparent;
+  position: absolute;
+  right: 5px;
+  top: -29px;
 }
 @keyframes fade {
   0% {

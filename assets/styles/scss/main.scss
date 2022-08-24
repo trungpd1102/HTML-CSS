@@ -116,7 +116,7 @@
 	color: $text-color;
 	position: absolute;
 	width: 400px;
-	top: 25px;
+	top: 30px;
 	right: 0;
 	background-color: $white-color;
 	border-radius: 2px;
@@ -124,7 +124,16 @@
 	box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.03);
 	display: none;
 	transform-origin: 100% 0%;
-
+	// Notify top right angle
+	&::before {
+		content: '';
+		border-width: 20px 27px;
+		border-style: solid;
+		border-color: transparent transparent $white-color transparent;
+		position: absolute;
+		right: 5px;
+		top: -29px;
+	}
 	@include keyframes(fade) {
 		0% {
 			transform: scale(0);
