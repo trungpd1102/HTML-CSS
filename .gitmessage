@@ -23,4 +23,5 @@
 
 # Configure git commit 
 # git config commit.template .gitmessage
-# git config --global core.editor notepad.exe
+# git config --global core.editor notepad.exe (windows)
+# git config --global core.editor "open -a 'Sublime Text' --wait" (macos, expect installed Sublime Text)
