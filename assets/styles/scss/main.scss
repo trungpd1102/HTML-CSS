@@ -212,6 +212,19 @@
 	width: 500px;
 	background: $white-color;
 	border-radius: 4px;
+	overflow: hidden;
+	@include keyframes(modalGrowth) {
+		0% {
+			opacity: 0;
+			transform: scale(0);
+		}
+		100% {
+			opacity: 1;
+			transform: scale(1);
+		}
+	}
+	animation: modalGrowth 0.3s ease;
+
 	&-container {
 		padding: 20px 28px;
 		&__header {
@@ -227,7 +240,7 @@
 			.switch-btn {
 				font-size: 1.6rem;
 				color: $primary-color;
-				text-decoration: none;
+				cursor: pointer;
 			}
 		}
 		&__form {
@@ -251,10 +264,33 @@
 				line-height: 2rem;
 				text-align: center;
 				padding: 0 12px;
+
 				a {
 					text-decoration: none;
 					color: $primary-color;
 				}
+			}
+		}
+		&__help {
+			font-size: 1.4rem;
+			margin-bottom: 100px;
+			margin-top: 10px;
+			&--align-right {
+				text-align: right;
+				padding: 0;
+			}
+			&--seperate {
+				height: 100%;
+				border-left: 1px solid $gray-color--1000;
+			}
+			a {
+				text-decoration: none;
+				color: $primary-color;
+				padding: 10px 5px 10px 7px;
+			}
+
+			.need-help {
+				color: $gray-color--900;
 			}
 		}
 		&__controls {
@@ -270,7 +306,10 @@
 		justify-content: center;
 		background: $gray-color--1250;
 		column-gap: 5px;
-		border-radius: 0 0 4px 4px;
+		&--login {
+			justify-content: space-between;
+			padding: 0 30px;
+		}
 		&-item {
 			height: 30px;
 			width: 220px;
@@ -279,11 +318,21 @@
 			display: flex;
 			align-items: center;
 			justify-content: flex-start;
-			border-radius: 4px;
-			column-gap: 40px;
+			&--login {
+				width: 140px;
+				border-radius: 4px;
+			}
 			&--facebook {
 				background-color: #3a5a98;
 				color: $white-color;
+			}
+			&--sms {
+				background-color: #30c241;
+				color: $white-color;
+			}
+			.social-item__text {
+				flex: 1;
+				text-align: center;
 			}
 		}
 	}

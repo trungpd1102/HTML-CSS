@@ -1,21 +1,19 @@
-function showRegisterModal() {
-	let modal = document.querySelector('#modal');
-	let register = document.querySelector('#register-modal');
+/**
+ * Show modal by id
+ * @param {*} modalId modal id
+ */
+function showModal(modalId) {
+	let selectedModal = document.querySelector(`#${modalId}`);
 
-	modal.style.display = 'flex';
-	register.style.display = 'block';
+	selectedModal.style.display = 'flex';
 }
 
-function hideRegisterModal() {
-	let modal = document.querySelector('#modal');
-	let register = document.querySelector('#register-modal');
+/**
+ * Hide modal by id
+ * @param {String} modalId modal id
+ */
+function hideModal(modalId) {
+	let selectedModal = document.querySelector(`#${modalId}`);
 
-	modal.style.display = 'none';
-	register.style.display = 'none';
+	selectedModal.style.display = 'none';
 }
-
-let registerBtn = document.querySelector('#register');
-registerBtn.addEventListener('click', () => showRegisterModal());
-
-let backBtn = document.querySelector('#back-btn');
-backBtn.addEventListener('click', () => hideRegisterModal());

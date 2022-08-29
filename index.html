@@ -110,11 +110,16 @@
 							</li>
 							<li
 								class="header__navbar-item header__navbar-item--strong header__navbar-item--seperate"
-								id="register"
+								onclick="showModal('register-modal')"
 							>
 								Đăng ký
 							</li>
-							<li class="header__navbar-item header__navbar-item--strong">Đăng nhập</li>
+							<li
+								class="header__navbar-item header__navbar-item--strong"
+								onclick="showModal('login-modal')"
+							>
+								Đăng nhập
+							</li>
 						</ul>
 					</nav>
 				</div>
@@ -124,16 +129,20 @@
 
 			<footer class="footer"></footer>
 		</div>
-		<!-- Modal dialog -->
-		<div id="modal" class="modal">
-			<div class="modal__overlay"></div>
+
+		<!-- Register Modal -->
+		<div id="register-modal" class="modal">
+			<div class="modal__overlay" onclick="hideModal('register-modal')"></div>
 			<div class="modal__body">
 				<div class="auth-form">
-					<!-- Register form -->
-					<div id="register-modal" class="auth-form-container">
+					<div class="auth-form-container">
 						<div class="auth-form-container__header">
 							<span class="heading">Đăng ký</span>
-							<a href="" class="switch-btn">Đăng nhập</a>
+							<span
+								class="switch-btn"
+								onclick="hideModal('register-modal'); showModal('login-modal')"
+								>Đăng nhập</span
+							>
 						</div>
 
 						<div class="auth-form-container__form">
@@ -156,7 +165,9 @@
 						</div>
 
 						<div class="auth-form-container__controls">
-							<button id="back-btn" class="btn btn--normal">TRỞ LẠI</button>
+							<button id="back-btn" class="btn btn--normal" onclick="hideModal('register-modal')">
+								TRỞ LẠI
+							</button>
 							<button class="btn btn--primary">ĐĂNG KÝ</button>
 						</div>
 					</div>
@@ -173,7 +184,7 @@
 									d="M400 32H48A48 48 0 0 0 0 80v352a48 48 0 0 0 48 48h137.25V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.27c-30.81 0-40.42 19.12-40.42 38.73V256h68.78l-11 71.69h-57.78V480H400a48 48 0 0 0 48-48V80a48 48 0 0 0-48-48z"
 								/>
 							</svg>
-							Kết nối với Facebook
+							<span class="social-item__text"> Kết nối với Facebook </span>
 						</a>
 						<a href="" class="btn btn--with-icon auth-form__social-item">
 							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 488 512">
@@ -182,70 +193,94 @@
 									d="M488 261.8C488 403.3 391.1 504 248 504 110.8 504 0 393.2 0 256S110.8 8 248 8c66.8 0 123 24.5 166.3 64.9l-67.5 64.9C258.5 52.6 94.3 116.6 94.3 256c0 86.5 69.1 156.6 153.7 156.6 98.2 0 135-70.4 140.8-106.9H248v-85.3h236.1c2.3 12.7 3.9 24.9 3.9 41.4z"
 								/>
 							</svg>
-							Kêt nối với Google
+							<span class="social-item__text"> Kêt nối với Google </span>
 						</a>
 					</div>
 				</div>
+			</div>
+		</div>
 
-				<!-- Login form -->
-				<div id="login-modal" class="auth-form-container">
-					<div class="auth-form-container__header">
-						<span class="heading">Đăng ký</span>
-						<a href="" class="switch-btn">Đăng nhập</a>
-					</div>
-
-					<div class="auth-form-container__form">
-						<div class="input-group">
-							<input type="text" class="input-group__input" placeholder="Số điện thoại" />
+		<!-- Login Modal -->
+		<div id="login-modal" class="modal">
+			<div class="modal__overlay" onclick="hideModal('login-modal')"></div>
+			<div class="modal__body">
+				<div id="login-modal" class="auth-form">
+					<div id="login-modal" class="auth-form-container">
+						<div class="auth-form-container__header">
+							<span class="heading">Đăng nhập</span>
+							<span
+								class="switch-btn"
+								onclick="hideModal('login-modal'); showModal('register-modal')"
+								>Đăng ký</span
+							>
 						</div>
-						<div class="input-group">
-							<input type="text" class="input-group__input" placeholder="Nhập mật khẩu của bạn" />
+
+						<div class="auth-form-container__form">
+							<div class="input-group">
+								<input type="text" class="input-group__input" placeholder="Số điện thoại" />
+							</div>
+							<div class="input-group">
+								<input type="text" class="input-group__input" placeholder="Nhập mật khẩu của bạn" />
+							</div>
 						</div>
-						<div class="input-group">
-							<input type="text" class="input-group__input" placeholder="Nhập lại mật khẩu" />
+
+						<div class="auth-form-container__help auth-form-container__help--align-right">
+							<a class="forget-password" href="">Quên Mật Khẩu</a>
+							<span class="auth-form-container__help--seperate"></span>
+							<a class="need-help" href="">Cần trợ giúp?</a>
+						</div>
+
+						<div class="auth-form-container__controls">
+							<button id="back-btn" class="btn btn--normal" onclick="hideModal('login-modal')">
+								TRỞ LẠI
+							</button>
+							<button class="btn btn--primary">ĐĂNG NHẬP</button>
 						</div>
 					</div>
 
-					<div class="auth-form-container__policy">
-						<p class="policy-text">
-							Bằng việc đăng ký, ban đã đồng ý về <a href="">Điều khoản dịch vụ</a> và
-							<a href="">Chính sách bảo mật</a>
-						</p>
+					<div class="auth-form__social auth-form__social--login">
+						<a
+							href=""
+							class="btn btn--with-icon auth-form__social-item auth-form__social-item--login auth-form__social-item--sms"
+						>
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+								<!--! Font Awesome Pro 6.1.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+								<path
+									fill="#fff"
+									d="M256 31.1c-141.4 0-255.1 93.12-255.1 208c0 49.62 21.35 94.98 56.97 130.7c-12.5 50.37-54.27 95.27-54.77 95.77c-2.25 2.25-2.875 5.734-1.5 8.734c1.249 3 4.021 4.766 7.271 4.766c66.25 0 115.1-31.76 140.6-51.39c32.63 12.25 69.02 19.39 107.4 19.39c141.4 0 255.1-93.13 255.1-207.1S397.4 31.1 256 31.1zM127.1 271.1c-17.75 0-32-14.25-32-31.1s14.25-32 32-32s32 14.25 32 32S145.7 271.1 127.1 271.1zM256 271.1c-17.75 0-31.1-14.25-31.1-31.1s14.25-32 31.1-32s31.1 14.25 31.1 32S273.8 271.1 256 271.1zM383.1 271.1c-17.75 0-32-14.25-32-31.1s14.25-32 32-32s32 14.25 32 32S401.7 271.1 383.1 271.1z"
+								/>
+							</svg>
+							<span class="social-item__text"> SMS </span>
+						</a>
+						<a
+							href=""
+							class="btn btn--with-icon auth-form__social-item auth-form__social-item--login auth-form__social-item--facebook"
+						>
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+								<!--! Font Awesome Pro 6.1.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+								<path
+									fill="#fff"
+									d="M400 32H48A48 48 0 0 0 0 80v352a48 48 0 0 0 48 48h137.25V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.27c-30.81 0-40.42 19.12-40.42 38.73V256h68.78l-11 71.69h-57.78V480H400a48 48 0 0 0 48-48V80a48 48 0 0 0-48-48z"
+								/>
+							</svg>
+							<span class="social-item__text"> Facebook </span>
+						</a>
+						<a
+							href=""
+							class="btn btn--with-icon auth-form__social-item auth-form__social-item--login"
+						>
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 488 512">
+								<!--! Font Awesome Pro 6.1.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+								<path
+									d="M488 261.8C488 403.3 391.1 504 248 504 110.8 504 0 393.2 0 256S110.8 8 248 8c66.8 0 123 24.5 166.3 64.9l-67.5 64.9C258.5 52.6 94.3 116.6 94.3 256c0 86.5 69.1 156.6 153.7 156.6 98.2 0 135-70.4 140.8-106.9H248v-85.3h236.1c2.3 12.7 3.9 24.9 3.9 41.4z"
+								/>
+							</svg>
+							<span class="social-item__text"> Google </span>
+						</a>
 					</div>
-
-					<div class="auth-form-container__controls">
-						<button id="back-btn" class="btn btn--normal">TRỞ LẠI</button>
-						<button class="btn btn--primary">ĐĂNG KÝ</button>
-					</div>
-				</div>
-
-				<div class="auth-form__social">
-					<a
-						href=""
-						class="btn btn--with-icon auth-form__social-item auth-form__social-item--facebook"
-					>
-						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-							<!--! Font Awesome Pro 6.1.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
-							<path
-								fill="#fff"
-								d="M400 32H48A48 48 0 0 0 0 80v352a48 48 0 0 0 48 48h137.25V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.27c-30.81 0-40.42 19.12-40.42 38.73V256h68.78l-11 71.69h-57.78V480H400a48 48 0 0 0 48-48V80a48 48 0 0 0-48-48z"
-							/>
-						</svg>
-						Kết nối với Facebook
-					</a>
-					<a href="" class="btn btn--with-icon auth-form__social-item">
-						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 488 512">
-							<!--! Font Awesome Pro 6.1.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
-							<path
-								d="M488 261.8C488 403.3 391.1 504 248 504 110.8 504 0 393.2 0 256S110.8 8 248 8c66.8 0 123 24.5 166.3 64.9l-67.5 64.9C258.5 52.6 94.3 116.6 94.3 256c0 86.5 69.1 156.6 153.7 156.6 98.2 0 135-70.4 140.8-106.9H248v-85.3h236.1c2.3 12.7 3.9 24.9 3.9 41.4z"
-							/>
-						</svg>
-						Kêt nối với Google
-					</a>
 				</div>
 			</div>
 		</div>
+		<script src="./main.js"></script>
 	</body>
-
-	<script src="./main.js"></script>
 </html>
