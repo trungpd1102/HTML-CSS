@@ -1,15 +1,21 @@
-function showModal() {
+function showRegisterModal() {
 	let modal = document.querySelector('#modal');
+	let register = document.querySelector('#register-modal');
+
 	modal.style.display = 'flex';
+	register.style.display = 'block';
 }
 
-function hideModal() {
+function hideRegisterModal() {
 	let modal = document.querySelector('#modal');
+	let register = document.querySelector('#register-modal');
+
 	modal.style.display = 'none';
+	register.style.display = 'none';
 }
 
-let modal = document.querySelector('#register');
-modal.addEventListener('click', () => showModal());
+let registerBtn = document.querySelector('#register');
+registerBtn.addEventListener('click', () => showRegisterModal());
 
 let backBtn = document.querySelector('#back-btn');
-backBtn.addEventListener('click', () => hideModal());
+backBtn.addEventListener('click', () => hideRegisterModal());
